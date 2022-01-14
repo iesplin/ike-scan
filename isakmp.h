@@ -184,6 +184,7 @@
 #define IKEV2_PRF_HMAC_SHA1	2
 #define IKEV2_PRF_HMAC_TIGER	3
 #define IKEV2_PRF_AES128_XCBC	4
+#define IKEV2_PRF_HMAC_SHA2_256 5
 
 /* IKEv2 transform IDs for IKEV2_TYPE_INTEG */
 #define IKEV2_AUTH_HMAC_MD5_96	1
@@ -191,7 +192,7 @@
 #define IKEV2_AUTH_DES_MAC	3
 #define IKEV2_AUTH_KPDK_MD5	4
 #define IKEV2_AUTH_AES_XCBC_96	5
-
+#define IKEV2_AUTH_HMAC_SHA2_256_128 12
 /*
  * Define packet structures
  */
