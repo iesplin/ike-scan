@@ -2180,6 +2180,11 @@ process_notify2(unsigned char *cp, size_t len, int quiet, int multiline,
       msg=make_message("Notify message %u (Firewall-1) Message=\"%s\"",
                        msg_type, notify_msg);
       free(notify_msg);
+   } else if (msg_type == 17) { /* INVALID_KE_PAYLOAD message type */
+      unsigned *msg_data_int = (unsigned int *)msg_data;
+      unsigned dhgroup_accept = ntohs(*msg_data_int);
+      msg=make_message("Notify message %u (%s) - Responder accepts DH Group %u (use --dhgroup/-g parameter)", msg_type,
+                       id_to_name(msg_type, notification_map2), dhgroup_accept);
    } else {			/* All other Message Types */
       msg=make_message("Notify message %u (%s)", msg_type,
                        id_to_name(msg_type, notification_map2));
